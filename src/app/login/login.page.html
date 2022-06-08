@@ -1,0 +1,26 @@
+
+<ion-content >
+<form class="login1" >
+  <ion-item class="login2">
+    <ion-label  position="floating">
+      Phone
+    </ion-label>
+    <ion-input [ngModelOptions]="{standalone: true}"
+     [(ngModel)]="model.phone"
+       position="floating" type="text"required></ion-input>
+  </ion-item>
+  <ion-item class="login2">
+    <ion-label position="floating">password</ion-label>
+    <ion-input [ngModelOptions]="{standalone: true}"
+     [(ngModel)]="model.password" 
+      position="floating" type="Password" required></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+    <ion-button (click)="save()"  type="submit" color="light" expand="block">
+     Sin up
+    </ion-button>
+</ion-col>
+</ion-row>
+</form>
+</ion-content>

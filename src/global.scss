@@ -1,0 +1,280 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+:root {
+    --theme_color: #2e7d32;
+}
+.segment-button-checked {
+    background: #022b02;
+    color: white;
+    --background-hover: #022b02;
+    --background-focused: #022b02;
+    --indicator-color: #022b02;
+}
+
+::ng-deep .ion-color-success {
+    --ion-color-base: var(--theme_color) !important;
+}
+
+.invalid-date {
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+.invalid-feedback {
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+.is-invalid-date ~ .invalid-date {
+    display: block;
+}
+.is-invalid {
+    border-bottom: 1px red solid;
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    // background-image: url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.ion-theme-bg {
+    --background: var(--theme_color);
+}
+.theme-bg {
+    background: var(--theme_color);
+    --background: var(--theme_color);
+    color: white;
+}
+.text-white {
+    color: white;
+}
+.bg-white {
+    background-color: white;
+}
+.text-white {
+    color: white;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.p-0 {
+    padding: 0;
+}
+.pl-0 {
+    padding-left: 0;
+}
+.pr-0 {
+    padding-right: 0;
+}
+.pt-0 {
+    padding-top: 0;
+}
+.pb-0 {
+    padding-bottom: 0;
+}
+
+.m-0 {
+    margin: 0;
+}
+.ml-0 {
+    margin-left: 0;
+}
+.m-3 {
+    margin: 3px;
+}
+.mr-0 {
+    margin-right: 0;
+}
+.mt-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mt-4 {
+    margin-top: 6px;
+}
+.mt-8 {
+    margin-top: 9px;
+}
+.mb-0 {
+    margin-bottom: 0;
+}
+.w-100 {
+    width: 100%;
+}
+.w-90 {
+    width: 90%;
+}
+mb-2 {
+    margin: 2px;
+}
+print-invoice {
+    display: none;
+}
+.img1 {
+    width: 50px;
+    height: 50px;
+}
+.header-top {
+    padding: 7px;
+    height: 90px;
+}
+
+.h-30 {
+    height: 30px;
+}
+
+.box-top {
+    p span {
+        font-weight: 700;
+        font-size: 15px;
+    }
+    p strong {
+        font-size: 15px;
+    }
+    background-color: var(--theme_color);
+    color: white;
+    border-radius: 20px;
+}
+ion-content,
+ion-tab-bar,
+ion-item {
+    --background: rgb(28 40 46);
+    color: white;
+}
+ion-item {
+    --ion-item-border-color: whitesmoke;
+    // patch: i need this to override md mode.
+    --border-color: whitesmoke;
+}
+
+h3 {
+    margin: 0;
+    color: #874446;
+    font-weight: 600;
+}
+
+.header-top1 {
+    height: 150px;
+
+    border-top: solid green;
+}
+
+ion-label {
+    span {
+        font-size: 17px;
+    }
+    p {
+        font-size: 7px;
+    }
+    label {
+        font-weight: 200px;
+    }
+    span ion-icon {
+        cursor: pointer;
+
+        height: 23px;
+    }
+}
+ion-label p label {
+    font-size: 16px;
+}
+ion-button {
+    height: 45px;
+    padding: 0;
+    margin: 0%;
+    margin-top: 0%;
+}
+.pd-3p {
+    padding-bottom: 3px;
+}
+ion-item:hover {
+    --color: white;
+}
+.icons-pdf-xls {
+    width: 20px;
+
+    padding: 2px;
+}
+.color-t-gray {
+    color: rgb(155, 146, 146);
+}
+.color-b-green {
+    background-color: #08740c;
+}
+.color-t-white {
+    color: white;
+}
+.color-b-dark {
+    --background: var(--theme_color);
+}
+.sc-ion-label-ios-s > p {
+    color: #666666;
+}
+.selected-row {
+    --background: white;
+    background: white;
+    color: black;
+}
+.checkout {
+    float: right;
+    border: 1px solid;
+    font-size: large;
+    border-radius: 10px;
+}
+
+.crop_img {
+    width: 70px;
+    text-align: center;
+    margin-top: 33px;
+    margin-left: 3%;
+}
+.edit-image {
+    right: 8%;
+    position: absolute;
+    bottom: 0;
+    -webkit-transform: translate(-45px, -20px);
+    transform: translate(-45px, -20px);
+    width: 40px;
+    height: 40px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+}

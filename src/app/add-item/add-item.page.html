@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Price</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item>
+    <ion-label>Items</ion-label>
+    <ion-select (ionChange)="getPrice()" [(ngModel)]="model.itemId">
+      <ion-select-option *ngFor="let item of items" [value]="item._id">
+        {{ item.name }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">
+      Price
+    </ion-label>
+    <ion-input [(ngModel)]="model.price" type="number"></ion-input>
+  </ion-item>
+    <ion-button (click)="save()" expand="full" color="success">SAVE</ion-button>
+</ion-list>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button  class="but" defaultHref="/" slot="start" ></ion-back-button>
+    <ion-title>users</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-item>
+  <ion-toggle class="togg"  color="success"></ion-toggle>
+  <ion-lable>Update Price</ion-lable>
+</ion-item>
+
+<ion-item>
+  <ion-toggle class="togg"  color="success"></ion-toggle>
+  <ion-lable>Consumption</ion-lable>
+</ion-item>
+
+<ion-item>
+  <ion-toggle class="togg"  color="success"></ion-toggle>
+  <ion-lable>Stock</ion-lable>
+</ion-item>
+<ion-item>
+  <ion-lable routerLink="/users/add" >
+    Add User
+  </ion-lable>
+<ion-icon class="plus" routerLink="/users/add" name="add-circle-outline"></ion-icon>
+</ion-item>
+
+
+</ion-content>

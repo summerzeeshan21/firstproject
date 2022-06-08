@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: rgba(246, 246, 246, 0.6)">
+    <ion-title padding="10px 20px">
+
+
+      <span (click)="logout()" style="margin-left: 10px;" class="pull-right">
+        <ion-icon  name="log-out-outline"></ion-icon>
+      </span>
+      <span class="pull-right" [routerLink]="['/settings']">
+        <ion-icon name="settings-outline"></ion-icon>
+      </span>
+
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <app-header></app-header>
+  <ion-grid>
+
+    <ion-grid class="mt-0">
+      
+      <label class="text-white" > Available Stock</label>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row class="header-top">
+
+        <ion-col class="box-top" size="5">
+          <p class="text-center mt-0 mt-4"><label>Petrol<br><br>2500 <h8 class="thems">Liter</h8></label></p>
+          <p class="text-center m-0 mt-4" style="font-size: 15px"><strong>
+              <span *ngIf="dasboardInfo?.payable<0">({{(dasboardInfo?.payable)*-1}})</span>
+              <span *ngIf="dasboardInfo?.payable>0">{{(dasboardInfo?.payable) || '0'}}</span>
+            </strong></p>
+
+        </ion-col>
+        <ion-col class="box-top" size="5" offset="1.9">
+          <p class="text-center mt-0 mt-4"><label>Diesel<br><br><h8 class="thems">Liter</h8>5000<br> </label> </p>
+          <p class="text-center m-0 mt-4"><strong>
+              <span *ngIf="dasboardInfo?.receiveable<0">({{(dasboardInfo?.receiveable)*-1}})</span>
+              <span *ngIf="dasboardInfo?.receiveable>0">{{(dasboardInfo?.receiveable) || '0'}}</span>
+            </strong></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="text-white">
+        <div [routerLink]="['/add-item']">
+          <div class="text-center">
+            <img style="width:40px;  " src="/assets/icon/products.png" />
+          </div>
+          <div class="text-center">
+            <span>Update Price</span>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col class="text-white">
+        <div routerLink="/consumption-report">
+          <div class="text-center">
+            <img style="width:40px; " src="/assets/icon/customer.png" />
+          </div>
+          <div class="text-center">
+            <span>Consumption</span>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-white">
+        <div [routerLink]="['/stock']">
+          <div class="text-center">
+            <img style="width:40px; " src="/assets/icon/customer.png" />
+          </div>
+          <div class="text-center">
+            <span>Stock</span>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col class="text-white">
+        <div routerLink="/users">
+          <div class="text-center">
+            <img style="width:40px; " src="/assets/icon/products.png" />
+          </div>
+          <div class="text-center">
+            <span>Users</span>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
