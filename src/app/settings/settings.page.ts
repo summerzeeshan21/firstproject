@@ -27,8 +27,8 @@ export class SettingsPage implements OnInit {
     }
     const url = 'http://localhost:3000/api/items/addSetting';
     this.http.post(url, this.model, httpOptions).subscribe(result => {
-       this.model (result["message"]);
-       console.log(result)
+    alert(['message']);
+    console.log(result)
     });
   }
 
