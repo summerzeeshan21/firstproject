@@ -2,7 +2,6 @@
   <ion-toolbar style="--background: rgba(246, 246, 246, 0.6)">
     <ion-title padding="10px 20px">
 
-
       <span (click)="logout()" style="margin-left: 10px;" class="pull-right">
         <ion-icon  name="log-out-outline"></ion-icon>
       </span>
@@ -11,7 +10,6 @@
       </span>
 
     </ion-title>
-
   </ion-toolbar>
 </ion-header>
 
@@ -30,19 +28,22 @@
     <ion-grid>
       <ion-row class="header-top">
 
-        <ion-col class="box-top" size="5">
-          <p class="text-center mt-0 mt-4"><label>Petrol<br><br>2500 <h8 class="thems">Liter</h8></label></p>
+        <ion-col class="box-top" size="5" >
+          <span></span>
+          <p class="text-center mt-0 mt-4"><label>Petrol<br><br>4000<h8 class="thems">Liter</h8></label></p>
           <p class="text-center m-0 mt-4" style="font-size: 15px"><strong>
-              <span *ngIf="dasboardInfo?.payable<0">({{(dasboardInfo?.payable)*-1}})</span>
-              <span *ngIf="dasboardInfo?.payable>0">{{(dasboardInfo?.payable) || '0'}}</span>
+              <!-- <span *ngIf="dasboardInfo?.payable<0">({{(dasboardInfo?.payable)*-1}})</span>
+              <span *ngIf="dasboardInfo?.payable>0">{{(dasboardInfo?.payable) || '0'}}</span> -->
             </strong></p>
 
         </ion-col>
         <ion-col class="box-top" size="5" offset="1.9">
-          <p class="text-center mt-0 mt-4"><label>Diesel<br><br><h8 class="thems">Liter</h8>5000<br> </label> </p>
+          <span></span>
+          <p class="text-center mt-0 mt-4"><label>Diesel<br><br>3000 
+         <h8 class="thems">Liter</h8><br> </label> </p>
           <p class="text-center m-0 mt-4"><strong>
-              <span *ngIf="dasboardInfo?.receiveable<0">({{(dasboardInfo?.receiveable)*-1}})</span>
-              <span *ngIf="dasboardInfo?.receiveable>0">{{(dasboardInfo?.receiveable) || '0'}}</span>
+              <!-- <span *ngIf="dasboardInfo?.receiveable<0">({{(dasboardInfo?.receiveable)*-1}})</span>
+              <span *ngIf="dasboardInfo?.receiveable>0">{{(dasboardInfo?.receiveable) || '0'}}</span> -->
             </strong></p>
         </ion-col>
       </ion-row>

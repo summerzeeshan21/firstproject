@@ -40,8 +40,7 @@ export class AddStockPage implements OnInit {
     }
     let url = "http://localhost:3000/api/items/addStock";
     this.httpp.post(url, this.model, httpOptions).subscribe(result => {
-      if (result["success"]) this.presentToast(result["message"]);
-      console.log(result)
+     this.presentToast(result["message"]);
     })
   }
   async presentToast(msg) {

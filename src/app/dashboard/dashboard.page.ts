@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,17 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-  dasboardInfo={};
+  
   constructor(
-    private router:Router
+    private router:Router,
   ) { }
-
   ngOnInit() {
   }
   logout(){
     this.router.navigate(["/login"]);
     console.log("login")
-    
   }
 
 }

@@ -42,8 +42,7 @@ export class AddItemPage implements OnInit {
     }
     const url = 'http://localhost:3000/api/items/update';
     this.http.post(url, this.model, httpOptions).subscribe(result => {
-      if (result["success"]) this.presentToast(result["message"]);
-      console.log(result);
+       this.presentToast(result["message"]);
     });
   }
 

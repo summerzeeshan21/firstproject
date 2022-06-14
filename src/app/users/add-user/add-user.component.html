@@ -1,13 +1,46 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" (click)='back()'>
-      <ion-back-button ></ion-back-button>
+      <ion-back-button></ion-back-button>
 
     </ion-buttons>
-    <ion-title>Add User</ion-title>
+    <ion-title>{{id?'Update':'Add'}} User</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
- 
-  
+<ion-content  class="userModel">
+  <!-- <form > -->
+    <ion-item class="login2">
+      <ion-label position="floating"> Name </ion-label>
+      <ion-input [(ngModel)]="model.name"  position="floating" type="text"></ion-input>
+    </ion-item>
+    <ion-item class="login2">
+      <ion-label position="floating">
+        Phone
+      </ion-label>
+      <ion-input [(ngModel)]="model.phone" type="text"  position="floating" type="text"
+        required></ion-input>
+    </ion-item>
+    <ion-item class="login2">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [(ngModel)]="model.password"  position="floating" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-lable>Update Price</ion-lable>
+      <ion-toggle [(ngModel)]="model.allowPriceUpdate" slot="end" class="togg"  color="success"></ion-toggle>
+
+    </ion-item>
+    
+    <ion-item>
+      <ion-lable>Consumption</ion-lable>
+      <ion-toggle [(ngModel)]="model.allowConsumption" slot="end" class="togg"  color="success"></ion-toggle>
+
+    </ion-item>
+    
+    <ion-item>
+      <ion-lable>Stock</ion-lable>
+      <ion-toggle [(ngModel)]="model.allowStock" slot="end" class="togg"  color="success"></ion-toggle>
+    </ion-item>
+    <ion-button (click)="submit()" color="success"  expand="block">Submit</ion-button>
+  <!-- </form> -->
+
 </ion-content>

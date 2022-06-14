@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
+  model: any= {pump: null, city: null }
 
-  constructor() { }
+  constructor( 
+    private http: HttpClient
+    ) { 
+   
+  }
 
   ngOnInit() {
+
+  }
+  save() {
+    console.log(this.model);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'bearer ' + localStorage.getItem('token')
+      })
+    }
+    const url = 'http://localhost:3000/api/items/addSetting';
+    this.http.post(url, this.model, httpOptions).subscribe(result => {
+       this.model (result["message"]);
+       console.log(result)
+    });
   }
 
 }
