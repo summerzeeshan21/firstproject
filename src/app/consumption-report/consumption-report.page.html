@@ -1,14 +1,15 @@
 <ion-header>
   <ion-toolbar>
-      <ion-back-button  class="but" defaultHref="/" slot="start" ></ion-back-button>
-    <ion-title>Consumptions
+    <ion-back-button class="but m-0" defaultHref="/" slot="start"></ion-back-button>
+    <ion-title style="margin-left:-7%;">Consumptions
+      <img style="width:25px; " src="/assets/icon/pdf.png" />
       <ion-icon class="plus" routerLink="/add-consumption" name="add-circle-outline"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)"  >
+  <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-grid>
@@ -16,16 +17,15 @@
       <ion-col class="sta">
         <ion-label>
           <span class="date" style="font-size:13px">Start Date</span><br>
-          <ion-input (change)="getItem()" class="input" [(ngModel)]="model.startDate" type="date"></ion-input>
-          </ion-label>
+          <ion-input (ionChange)="getItem()" class="input" [(ngModel)]="model.startDate" type="date"></ion-input>
+        </ion-label>
       </ion-col>
-      <ion-col  class="nd">
+      <ion-col class="nd">
         <ion-label>
-        <span class="date" style="font-size:13px">End Date</span><br>
-        <!-- <ion-datetime displayFormat="MM/DD/YYYY" (ionChange)="getItem()" [(ngModel)]="model.endDate"></ion-datetime> -->
-
-        <ion-input displayFormat="MM/DD/YYYY" (change)="getItem()" class="input1" [(ngModel)]="model.endDate" type="date"></ion-input>
-    </ion-label>
+          <span class="date" style="font-size:13px">End Date</span><br>
+          <ion-input displayFormat="MM/DD/YYYY" (ionChange)="getItem()" class="input1" [(ngModel)]="model.endDate"
+            type="date"></ion-input>
+        </ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -35,27 +35,30 @@
         <label>
           Petrol<br>
           <h8 class="theme">Ltr</h8> {{totalPetrol}}<br>
-          <h8 class="theme">Rs</h8> {{totalPrice}} 
+          <h8 class="theme">Rs</h8> {{totalPrice || 0}}
         </label>
       </ion-col>
       <ion-col class="dil" size="5">
         <label>
           Diesel<br>
           <h8 class="theme">Ltr</h8> {{totalDiesel}}<br>
-          <h8 class="theme">Rs</h8> {{dieselTotalPrice}}
+          <h8 class="theme">Rs</h8> {{dieselTotalPrice || 0}}
         </label>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-item *ngFor="let item of items">
     <ion-label>
-     <p> <span class="text-white"> {{item.item.name}}</span>
-      <span class="Rs"> <h8 class="rs">liter</h8> {{item.quantity}} (<h8 class="rs">Rs</h8> {{item.price*item.quantity}})</span>
-    </p>
+      <p> <span class="text-white"> {{item.item.name}}</span>
+        <span class="Rs">
+          <h8 class="rs">liter</h8>{{item.quantity}}(<h8 class="rs">Rs</h8>{{item.price*item.quantity || 0}})
+        </span>
+      </p>
       <p>
         <span class="date">Date</span>
         <span class="pull-right">{{item.date | date:'MMMM-dd-yyyy'}}</span>
       </p>
     </ion-label>
   </ion-item>
+  
 </ion-content>

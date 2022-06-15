@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -15,7 +16,6 @@ export class ConsumptionReportPage implements OnInit {
   totalDiesel: number = 0;
   totalPrice: number = 0;
   dieselTotalPrice: number = 0;
- 
   constructor(
     private http: HttpClient,
     private datePipe: DatePipe
@@ -27,20 +27,18 @@ export class ConsumptionReportPage implements OnInit {
   ngOnInit() {
     this.getItem();
   }
-
   getItem() {
     console.log(this.model)
     this.totalPetrol = 0;
     this.totalDiesel = 0;
-    this. totalPrice = 0;
-    this. dieselTotalPrice = 0;
-    
+    this.totalPrice = 0;
+    this.dieselTotalPrice = 0;
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: 'bearer ' + localStorage.getItem('token')
       })
     }
-    const url = `http://localhost:3000/api/items/getConsumptionReport?startDate=${this.datePipe.transform(this.model.startDate, "yyyy-MM-dd")}&endDate=${this.model.endDate}`;
+    const url = environment.apiUrl+ `items/getConsumptionReport?startDate=${this.model.startDate}&endDate=${this.model.endDate}`;
     this.http.get(url, httpOptions).subscribe((result: any) => {
       this.items = result.body;
       this.items.forEach(element => {

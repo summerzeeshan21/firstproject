@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-user',
@@ -34,7 +35,7 @@ export class AddUserComponent implements OnInit {
         Authorization: 'bearer ' + localStorage.getItem('token')
       })
     }
-    const url = 'http://localhost:3000/api/user/getUserById?id='+id;
+    const url = environment.apiUrl+ 'user/getUserById?id='+id;
     this.http.get(url, httpOptions).subscribe((result:any) => {
       this.model=result.body;
       
@@ -47,9 +48,9 @@ export class AddUserComponent implements OnInit {
         Authorization: 'bearer ' + localStorage.getItem('token')
       })
     }
-    let url = "http://localhost:3000/api/user/addUser";
+    let url = environment.apiUrl+ "user/addUser";
     if(this.id){
-      url = "http://localhost:3000/api/user/updateUsers"; 
+      url = environment.apiUrl+ "user/updateUsers"; 
       this.model["id"]=this.id;
     }
     this.http.post(url, this.model, httpOptions).subscribe(result => {

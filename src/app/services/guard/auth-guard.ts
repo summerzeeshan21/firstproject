@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.getCookie("user")) this.router.navigate(["/auth/login"]);
+    if (!this.getLoggedInUser()) this.router.navigate(["/login"]);
     return true;
   }
   setCookie(cname, cvalue, exdays=null) {

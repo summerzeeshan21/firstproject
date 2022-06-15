@@ -3,56 +3,58 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Stock Report 
-      <ion-icon  class="plus" routerLink="/add-stock" name="add-circle-outline">
-      </ion-icon>
+    <ion-title style="margin-left:-4%;">Stock Report
+      <img style="width: 25px; " src="/assets/icon/pdf.png" />
+      <ion-icon class="plus" routerLink="/add-stock" name="add-circle-outline"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)"  >
+  <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-grid>
-  <ion-row>
-    <ion-col class="str" size="6">
-      <ion-label>
-       <span class="date" style="font-size:13px">Start Date</span><br>
-       <ion-input (change)="getItem()" class="input" [(ngModel)]="model.startDate" type="date"></ion-input>
-      </ion-label>
-    </ion-col>
-    <ion-col class="nd" size="6">
-      <ion-label>
-         <span class="date" style="font-size:13px">End Date </span><br>
-         <ion-input (change)="getItem()" class="input1" [(ngModel)]="model.endDate" type="date"></ion-input>
+    <ion-row>
+      <ion-col class="str" size="6">
+        <ion-label>
+          <span class="date" style="font-size:13px">Start Date</span><br>
+          <ion-input (ionChange)="getStockReport()" class="input" [(ngModel)]="model.startDate" type="date"></ion-input>
         </ion-label>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+      </ion-col>
+      <ion-col class="nd" size="6">
+        <ion-label>
+          <span class="date" style="font-size:13px">End Date </span><br>
+          <ion-input (ionChange)="getStockReport()" class="input1" [(ngModel)]="model.endDate" type="date"></ion-input>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-grid>
     <ion-row>
       <ion-col class="theme-bg" size="5">
         <label>
           Petrol<br>
-         <h8 class="thems">Ltr</h8> {{totalPetrol}}<br>
-         <h8 class="thems">Rs</h8> {{totalPrice}}
+          <h8 class="thems">Ltr</h8> {{totalPetrol || 0}}<br>
+          <h8 class="thems">Rs</h8> {{totalPrice || 0}}
         </label>
       </ion-col>
       <ion-col class="dil" size="5">
         <label>
           Diesel<br>
-          <h8 class="thems">Ltr</h8> {{totalDiesel}}<br>
-          <h8 class="thems">Rs</h8> {{dieselTotalPrice}}
+          <h8 class="thems">Ltr</h8> {{totalDiesel || 0}}<br>
+          <h8 class="thems">Rs</h8> {{dieselTotalPrice || 0}}
         </label>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-item *ngFor="let item of items">
     <ion-label>
-       <p>
-      <span class="text-white"> {{item.item.name}}</span>
-      <span class="Rs"> <h8 class="rs">Liter</h8> {{item.quantity}} (<h8 class="rs">Rs</h8> {{item.price*item.quantity}})</span>
-    </p>
+      <p>
+        <span class="text-white"> {{item.item.name}}</span>
+        <span class="Rs">
+          <h8 class="rs">Liter</h8>{{item.quantity}}(<h8 class="rs">Rs</h8>{{item.price*item.quantity || 0}})
+        </span>
+      </p>
       <p>
         <span class="date">Date</span>
         <span class="pull-right">{{item.date | date:'dd/MMMM/yyyy'}}</span>

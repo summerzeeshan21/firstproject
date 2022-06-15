@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/guard/auth-guard';
 
 const routes: Routes = [
+
   {
+    canActivate: [AuthGuard],
     path: '',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'add-item',
@@ -22,10 +29,7 @@ const routes: Routes = [
     path: 'stock',
     loadChildren: () => import('./stock/stock.module').then(m => m.StockPageModule)
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
-  },
+ 
   {
     path: 'consumption-report',
     loadChildren: () => import('./consumption-report/consumption-report.module').then( m => m.ConsumptionReportPageModule)

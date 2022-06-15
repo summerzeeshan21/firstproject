@@ -1,11 +1,16 @@
 .plus{
-    background-color: #2e7d32;
+    background-image: linear-gradient(rgb(42, 134, 34), rgb(21, 176, 26), rgb(72, 255, 0));
 float: right;
 font-size: 30px;
 border-radius: 5px;
 }
 .delet{
     float: right;
-    color: #e11a1a;
-    background-color: white;
+    color: #fc0404;
+    background-color: rgb(251, 246, 246);
+    border-radius: 2px;
+}
+.tro{
+    background-image: linear-gradient(rgb(14, 85, 18), rgb(67, 184, 61), rgb(245, 249, 245));
+    // background-color: rgb(73, 157, 157);
 }

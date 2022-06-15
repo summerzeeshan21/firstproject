@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-item',
@@ -27,7 +28,7 @@ export class AddItemPage implements OnInit {
         Authorization: 'bearer ' + localStorage.getItem('token')
       })
     }
-    const url = 'http://localhost:3000/api/items/getItems';
+    const url = environment.apiUrl+ 'items/getItems';
     this.http.get(url, httpOptions).subscribe((result:any) => {
       this.items=result.body;
       console.log(result);
@@ -40,7 +41,7 @@ export class AddItemPage implements OnInit {
         Authorization: 'bearer ' + localStorage.getItem('token')
       })
     }
-    const url = 'http://localhost:3000/api/items/update';
+    const url = environment.apiUrl+ 'items/update';
     this.http.post(url, this.model, httpOptions).subscribe(result => {
        this.presentToast(result["message"]);
     });

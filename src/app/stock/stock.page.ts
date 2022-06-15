@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -27,7 +28,6 @@ export class StockPage implements OnInit {
   ngOnInit() {
     this.getStockReport();
   }
-
   getStockReport() {
     console.log(this.model)
     this.totalPetrol = 0;
@@ -39,7 +39,7 @@ export class StockPage implements OnInit {
         Authorization: 'bearer ' + localStorage.getItem('token')
       })
     }
-    const url = `http://localhost:3000/api/items/getStockReport?startDate=${this.datePipe.transform(this.model.startDate, "MM/dd/yyyy")}&endDate=${this.model.endDate}`;
+    const url = environment.apiUrl+ `items/getStockReport?startDate=${this.datePipe.transform(this.model.startDate, "MM/dd/yyyy")}&endDate=${this.model.endDate}`;
     this.http.get(url, httpOptions).subscribe((result: any) => {
       this.items = result.body;
       this.items.forEach(element => {

@@ -2,6 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-users',
@@ -24,7 +25,7 @@ export class UsersPage implements OnInit {
         Authorization: 'bearer ' + localStorage.getItem('token')
       })
     }
-    const url = 'http://localhost:3000/api/user/getAssistantUsers';
+    const url = environment.apiUrl+ 'user/getAssistantUsers';
     this.http.get(url, httpOptions).subscribe((result:any) => {
       this.users=result.body;
       console.log(result);
