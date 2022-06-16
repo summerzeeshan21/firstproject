@@ -49,18 +49,17 @@ export class LoginPage implements OnInit {
   //       }
   //     });
   // }
-  // save() {
-  //   console.log(this.model);
-  //   const url = environment.apiUrl+ 'user/register';
-  //   this.httpp.post(url, this.model).subscribe(result => {
-  //     if(result["success"]){
-  //       localStorage.setItem("token",result["token"]);
-  //       this.router.navigate(["/"]);
-  //     }
-  //     else alert(result["message"])
-  //     console.log(result);
-  //   }
-  //   );
-  // }
+  save() {
+    console.log(this.model);
+    const url = environment.apiUrl+ 'user/register';
+    this.httpp.post(url, this.model).subscribe(result => {
+      if(result["success"]){
+        localStorage.setItem("token",result["token"]);
+        this.router.navigate(["/"]);
+      }
+      else alert(result["message"])
+      console.log(result);
+    }
+    );
+  }
 }
-
