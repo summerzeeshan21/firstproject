@@ -19,8 +19,9 @@ export class DashboardPage implements OnInit {
     this.getTotalStock();
   }
   logout() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     this.router.navigate(["/login"]);
-    console.log("login")
   }
   getTotalStock() {
     const httpOptions = {
@@ -44,5 +45,13 @@ export class DashboardPage implements OnInit {
       });
     })
   }
+Refresh(event){
+  this.getTotalStock();
+  setTimeout(()=>{
+    console.log('Async operation hase ended');
+    event.target.complete();
+  },2000);
+
+}
 
 }

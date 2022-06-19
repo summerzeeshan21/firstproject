@@ -23,7 +23,10 @@
   <tbody>
     <tr style="border-bottom: 1px solid;font-size: 15px;" 
     *ngFor="let item of users;let index=index">
-      <td routerLink="/users/update/{{item._id}}">{{item.name}}</td>
+    
+      <td routerLink="/users/update/{{item._id}}">
+       <img style="width:20px; " src="/assets/icon/user.png" />
+        {{item.name}}</td>
       <td>{{item.phone}}</td>
       <td>{{item.password}}
         <ion-icon class="delet" (click)="presentAlert(item._id,index)" name="trash-outline"></ion-icon>

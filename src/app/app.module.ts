@@ -8,6 +8,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 
 
@@ -20,7 +22,13 @@ import { AppComponent } from './app.component';
      AppRoutingModule,
      HttpClientModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },DatePipe],
+  providers: [{ provide: RouteReuseStrategy,
+     useClass: IonicRouteStrategy},
+     DatePipe,
+     AuthGuardService,
+     AuthService,
+
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
