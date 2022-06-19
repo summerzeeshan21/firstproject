@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import {FCM} from '@ionic-native/fcm/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { AuthService } from './auth.service';
      DatePipe,
      AuthGuardService,
      AuthService,
+     FCM
 
     ],
   bootstrap: [AppComponent],
